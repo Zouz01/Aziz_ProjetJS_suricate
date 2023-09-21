@@ -1,0 +1,107 @@
+Abdelaziz HEBBAZ
+
+E-commeerce Suricate
+
+
+
+Information sur ma méthodologique :
+************************************  1ere partie : le catalogue: 
+
+---- Pour commencer j'ai codé le BLOC IMAGE avec une variable "createFigureBlock"
+où il est demandé que la source image soit récuperée en ouvrant le catalog1.js, 
+puis insérée dans le BLOCFIGURE (ligne 283-283).
+
+---- J'ai fixé une quantité maximun d'articles à acheté à 9 et un minimum à 0 avec la constante MAX-QTY (ligne 236).
+
+---- Avec la fonction ternaire, j'ai demander que : si la quantité est supérieur à 0 alors l'icone panier est une opacité 
+de 1 sinon mettre l'opacité à 0,25 (ligne 261-262).
+
+
+
+************************************  2eme partie : la mise en panier
+
+---- Avec La fonction "initCart" j'ai ajouté un écouteur d'événement à tous les boutons "Ajouter au panier" 
+de la boutique (ligne 39 à 42)
+Lorsqu'on clique sur un bouton, la fonction addToCart est appelée pour ajouter le produit au panier.
+La fonction "validateQte" est utilisée pour valider la quantité entrée avant l'ajout au panier. 
+Si la quantité est valide, la fonction addToCart ajoute le produit au panier.(ligne4 42 à 48).
+
+
+
+************************************ 3eme partie : l'affichage du coût total dans la zone "#total span"
+
+La fonction updateTotalCost est appelée chaque fois qu'un produit est ajouté au panier pour mettre à jour le coût total (ligne 56).
+
+
+
+*********************************** 4eme partie : la gestion du filtre de recherche
+
+---- Avec la fonction "filterElement" (ligne 189),  je pose une condition de recherche à partir de 2 lettres (lige 190)
+puis une sous-conditon si élément trouver l'afficher dans le bloc avec une recherche aussi minuscule que majuscule
+grâcd à "tolowerCase" (ligne 192 à 193). Sinon ne rien afficher.
+
+
+************************************  5eme partie :  la validation de la quantité saisie 
+
+---- La fonction validatedQte ligne (62-63) est utilisée pour s'assurer que les quantités saisies sont valides, 
+c'est-à-dire qu'elles se présentent entre 1 et 9.
+
+
+
+
+
+Les Originalités un peu plus specifiques (en gros pas facile à mettre en place) :
+*******************************************************************************
+
+---- Creation d'une div "achat" (ligne 304-305) afin d'y integrer un button retirer avec
+un écouteur d'événement qui décrémentera le total affiché lorsqu'il est cliqué.
+
+
+
+---- création bloc de contenu "p" avec la classe "quantité" (ligne 315)
+---- création bloc de contenu "h4" pour la description du produit" (ligen 316), pareil pour les images (ligne 317)
+---- creation d'une "Id quantite" pour avoir un identifiant unique pour mes futurs calculs de montant total
+---- ajout d'elements enfants (image, description, qte, button)
+
+---- Puis j'ai mis en place des conditions (lignes 326 à 339) pour permettre de vérifier si un produit avec le même identifiant
+existe déjà dans le panier d'achat. 
+Si un produit similaire est trouvé, la condition vérifie si la quantité du produit est inférieure ou égale à 9. 
+Si la quantité est inférieure ou égale à 9, la quantité existante du produit est mise à jour en ajoutant la quantité
+saisie par l'utilisateur à la quantité existante du produit, et le total est mis à jour en ajoutant le prix du produit
+multiplié par la quantité saisie. 
+Si la quantité du produit est supérieure à 9, un message d'alerte s'affiche pour informer l'utilisateur que 
+la quantité maximale par article est atteinte, et la quantité est mise à jour avec la valeur de MAX_QTY.
+
+Si aucun produit similaire n'est trouvé dans le panier d'achat, le conteneur du produit est ajouté au panier d'achat. 
+La quantité du produit est mise à jour en ajoutant la quantité saisie par l'utilisateur à la quantité existante du produit,
+et le total est mis à jour en ajoutant le prix du produit multiplié par la quantité saisie par l'utilisateur.
+
+
+Là où j'ai rencontré des diffultées : 
+***********************************
+
+---- c'est avec les ".innertHTML" ..... je ne savais pas pourquoi mon code ne marchait pas.
+---- le calcul des totaux (malgré que ce ne sont que des additions) fut un grand moment de solitude car rien n'apparaissait
+dans le Total du panier suite jusqu'à  la découverte du ParsInt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
